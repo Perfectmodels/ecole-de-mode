@@ -1,4 +1,3 @@
-
 import React from 'react';
 import type { TeamMember } from '../../types';
 
@@ -25,7 +24,7 @@ const AboutPage: React.FC = () => {
                     <div>
                         <h2 className="text-4xl font-serif text-brand-burgundy mb-6">Notre Mission, Nos Valeurs</h2>
                         <p className="text-lg text-gray-700 mb-4">
-                            Fondée en 1996 par l'abbé Noël-Aimé Ngwa Nguéma, l'École de Mode de l'Archidiocèse de Libreville a avant tout une vocation sociale : aider les personnes démunies à se former aux métiers de la couture et à accéder à un emploi durable.
+                            Fondée en 1996 par l'abbé Noël-Aimé Ngwa Nguéma, l'Ecole de Mode de Nzeng Ayong a avant tout une vocation sociale : aider les personnes démunies à se former aux métiers de la couture et à accéder à un emploi durable.
                         </p>
                         <p className="text-lg text-gray-700">
                             Nous célébrons l'héritage culturel gabonais tout en prônant l'excellence, la créativité et l'innovation. Chaque étudiant est encouragé à développer son propre style pour devenir un acteur de la mode de demain.

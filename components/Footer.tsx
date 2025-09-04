@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <img src={logoUrl} alt="Logo École de Mode" className="h-20 w-auto mb-4 bg-white p-1 rounded-md" />
-            <h3 className="text-xl font-serif font-bold text-brand-gold mb-4">École de Mode de l'Archidiocèse de Libreville</h3>
+            <h3 className="text-xl font-serif font-bold text-brand-gold mb-4">Ecole de Mode de Nzeng Ayong</h3>
             <p className="text-sm text-gray-300">Fondée en 1996, notre école forme la prochaine génération de créateurs à Nzeng Ayong avec une mission sociale.</p>
           </div>
           <div>
@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} École de Mode de l'Archidiocèse de Libreville. Tous droits réservés.</p>
+          <p>&copy; {new Date().getFullYear()} Ecole de Mode de Nzeng Ayong. Tous droits réservés.</p>
         </div>
       </div>
     </footer>

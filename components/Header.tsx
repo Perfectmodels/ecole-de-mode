@@ -39,7 +39,7 @@ const Header: React.FC = () => {
     <header className="bg-brand-dark text-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-6 py-2 flex justify-between items-center">
         <Link to="/" className="flex-shrink-0">
-          <img src={logoUrl} alt="Logo École de Mode de Nzeng Ayong" className="h-16 w-auto" />
+          <img src={logoUrl} alt="Logo Ecole de Mode de Nzeng Ayong" className="h-16 w-auto" />
         </Link>
         <NavLinksComponent />
         <div className="md:hidden">
