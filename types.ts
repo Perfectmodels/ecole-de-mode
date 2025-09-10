@@ -5,6 +5,7 @@ export interface Course {
   duration: string;
   admission: string;
   imageUrl: string;
+  highlights?: string[];
 }
 
 export interface GalleryImage {
@@ -36,6 +37,7 @@ export interface TeamMember {
   name: string;
   role: string;
   imageUrl: string;
+  bio: string;
 }
 
 export interface Alumni {
