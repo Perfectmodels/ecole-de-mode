@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { db } from '../../firebase';
+// FIX: Refactored Firebase v9 imports to v8 syntax.
+// import { ref, onValue } from 'firebase/database';
+import type { SiteSettings } from '../../types';
 
 const ContactPage: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -8,6 +12,24 @@ const ContactPage: React.FC = () => {
         message: ''
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [settings, setSettings] = useState<SiteSettings>({
+        contact: { address: '', phone: '', whatsapp: '', email: '' },
+        social: { facebook: '#', instagram: '#', tiktok: '#' }
+    });
+
+     useEffect(() => {
+        // FIX: Refactored Firebase database listener from v9 to v8 syntax and added cleanup.
+        const settingsRef = db.ref('settings');
+        const listener = settingsRef.on('value', (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                setSettings(data);
+            }
+        });
+        return () => {
+            settingsRef.off('value', listener);
+        };
+    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -61,16 +83,16 @@ const ContactPage: React.FC = () => {
                         <div>
                             <h2 className="text-3xl font-serif text-brand-dark mb-6">Nos Coordonnées</h2>
                             <div className="space-y-4 text-lg text-gray-700">
-                                <p><strong>Adresse :</strong> Nzeng-Ayong, 6ᵉ arrondissement, Libreville, Gabon</p>
-                                <p><strong>Téléphone :</strong> +241 07 77 77 77</p>
-                                <p><strong>WhatsApp :</strong> +241 06 66 66 66</p>
-                                <p><strong>Email :</strong> <a href="mailto:contact@ena-mode.ga" className="text-brand-burgundy hover:underline">contact@ena-mode.ga</a></p>
+                                <p><strong>Adresse :</strong> {settings.contact.address}</p>
+                                <p><strong>Téléphone :</strong> {settings.contact.phone}</p>
+                                <p><strong>WhatsApp :</strong> {settings.contact.whatsapp}</p>
+                                <p><strong>Email :</strong> <a href={`mailto:${settings.contact.email}`} className="text-brand-burgundy hover:underline">{settings.contact.email}</a></p>
                             </div>
                             <h3 className="text-2xl font-serif text-brand-dark mt-8 mb-4">Réseaux Sociaux</h3>
                             <div className="flex space-x-4">
-                               <a href="#" className="text-brand-dark hover:text-brand-burgundy">Instagram</a>
-                               <a href="#" className="text-brand-dark hover:text-brand-burgundy">TikTok</a>
-                               <a href="#" className="text-brand-dark hover:text-brand-burgundy">Facebook</a>
+                               <a href={settings.social.instagram} target="_blank" rel="noopener noreferrer" className="text-brand-dark hover:text-brand-burgundy">Instagram</a>
+                               <a href={settings.social.tiktok} target="_blank" rel="noopener noreferrer" className="text-brand-dark hover:text-brand-burgundy">TikTok</a>
+                               <a href={settings.social.facebook} target="_blank" rel="noopener noreferrer" className="text-brand-dark hover:text-brand-burgundy">Facebook</a>
                             </div>
                              <h3 className="text-2xl font-serif text-brand-dark mt-8 mb-4">Partenaire</h3>
                             <p className="text-lg text-gray-700">Perfect Models Management</p>

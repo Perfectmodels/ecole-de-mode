@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
@@ -11,6 +10,7 @@ const navLinks = [
   { to: '/admissions', text: 'Admissions' },
   { to: '/actualites', text: 'Actualités' },
   { to: '/contact', text: 'Contact' },
+  { to: '/admin', text: 'Connexion' },
 ];
 
 const Header: React.FC = () => {
@@ -21,12 +21,12 @@ const Header: React.FC = () => {
   const inactiveLinkClass = 'hover:text-brand-gold transition-colors duration-300';
 
   const NavLinksComponent: React.FC<{isMobile?: boolean}> = ({ isMobile = false }) => (
-    <nav className={`${isMobile ? 'flex flex-col items-center space-y-4 py-8' : 'hidden md:flex md:items-center md:space-x-8'}`}>
+    <nav className={`${isMobile ? 'flex flex-col items-center space-y-4 py-8' : 'hidden md:flex md:items-center md:space-x-6'}`}>
       {navLinks.map((link) => (
         <NavLink
           key={link.to}
           to={link.to}
-          className={({ isActive }) => `${isActive ? activeLinkClass : inactiveLinkClass} uppercase font-serif tracking-wider`}
+          className={({ isActive }) => `${isActive ? activeLinkClass : inactiveLinkClass} uppercase font-serif tracking-wider text-sm`}
           onClick={() => setIsMenuOpen(false)}
         >
           {link.text}

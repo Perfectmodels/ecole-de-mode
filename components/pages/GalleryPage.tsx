@@ -1,26 +1,39 @@
 
+
 import React, { useState, useMemo } from 'react';
 import type { GalleryImage, Event } from '../../types';
 
 const allImages: GalleryImage[] = [
-  { id: 1, imageUrl: 'https://scontent.flbv4-1.fna.fbcdn.net/v/t1.6435-9/101553186_1541928992680928_6054030422625484800_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF7fX_vU6rjck0uctxsCCowWi1iq7bV2jRaLWKrttXaNHNDzdV1ig16KoJ51SOeNzw8jsiYDXGoLpjOjbtCJfMG&_nc_ohc=Y4VWa20PhiwQ7kNvwFgzk1S&_nc_oc=AdmSLDPFsStKxt_4yhIpcJl-zDuSMfOFVzA9zwDw2PXKznKJgiLw2yNSb8sI81ph1pM&_nc_zt=23&_nc_ht=scontent.flbv4-1.fna&_nc_gid=1kpz8OFf30E2bZwRs28q9A&oh=00_AfU-KeQQL2n9_o3s16uMX_By2HwnnLRDXp6d2W2q743WXw&oe=68DD0E9E', title: 'Ajustement sur mannequin', category: 'atelier' },
-  { id: 2, imageUrl: 'https://www.libreville-accueil-bal.org/medias/images/20200210-93101.jpeg?fx=r_1200_800', title: 'Postes de couture alignés', category: 'atelier' },
-  { id: 3, imageUrl: 'https://www.libreville-accueil-bal.org/medias/images/20200210-093656.jpeg?fx=r_1200_800', title: 'Vue d\'ensemble de l\'atelier', category: 'atelier' },
-  { id: 4, imageUrl: 'https://scontent.flbv4-1.fna.fbcdn.net/v/t1.6435-9/102776080_1541929012680926_2589055351735189504_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFBL-UyGsU023e3zLhVjIZdrzbWF3T1DvSvNtYXdPUO9KNU29k5lEzD6PHqbKX9MHyZod-1Ka-1rEBJzxzieWyD&_nc_ohc=chRZLD9pKcgQ7kNvwHC_inC&_nc_oc=AdmhwXjFVy0VW3-2njk2b5d7ECc9W2VlXNd06giBSvWEF7NS7WNQP-CqEM3qwXqyR7M&_nc_zt=23&_nc_ht=scontent.flbv4-1.fna&_nc_gid=wUz2TJp6pN5FqyYwyiAt6g&oh=00_AfUp-tsx4Qd6leU0zwRbX_mGoPK6iN6RdXVcEyVcZ7-EJA&oe=68DD13B2', title: 'Étudiante concentrée', category: 'création' },
-  { id: 5, imageUrl: 'https://scontent.flbv4-1.fna.fbcdn.net/v/t1.6435-9/102416219_1541929059347588_5541633393919262720_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHVXvmH2JjFfrq83iTMKrKkaGqCsT_yBsNoaoKxP_IGw8HncxAh_ns66QcoF_Xx18lNawYD2dzBeo3rGRH5_BOE&_nc_ohc=HRz6Vj1psngQ7kNvwEhOH_v&_nc_oc=Adlxktfwi5RTuSDVWhrBrysQXzr5kbqHwHjZXvWT7kbpEdzl_7q3NFGiiQGyROyX_lA&_nc_zt=23&_nc_ht=scontent.flbv4-1.fna&_nc_gid=NwCwH5BMUbLaTA4oiyytdw&oh=00_AfW-s9Fbvp3HoRr9O0xScbaWBFw9hxfVMZu74ogtB7OB5Q&oe=68DD215B', title: 'Travail à la machine', category: 'atelier' },
-  { id: 6, imageUrl: 'https://picsum.photos/600/800?image=1060', title: 'Backstage Moment', category: 'défilé' },
-  { id: 7, imageUrl: 'https://picsum.photos/600/800?image=659', title: 'Accessoires en Wax', category: 'création' },
+  // FIX: Changed id from number to string to match GalleryImage type
+  { id: '1', imageUrl: 'https://scontent.flbv4-1.fna.fbcdn.net/v/t1.6435-9/101553186_1541928992680928_6054030422625484800_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF7fX_vU6rjck0uctxsCCowWi1iq7bV2jRaLWKrttXaNHNDzdV1ig16KoJ51SOeNzw8jsiYDXGoLpjOjbtCJfMG&_nc_ohc=Y4VWa20PhiwQ7kNvwFgzk1S&_nc_oc=AdmSLDPFsStKxt_4yhIpcJl-zDuSMfOFVzA9zwDw2PXKznKJgiLw2yNSb8sI81ph1pM&_nc_zt=23&_nc_ht=scontent.flbv4-1.fna&_nc_gid=1kpz8OFf30E2bZwRs28q9A&oh=00_AfU-KeQQL2n9_o3s16uMX_By2HwnnLRDXp6d2W2q743WXw&oe=68DD0E9E', title: 'Ajustement sur mannequin', category: 'atelier' },
+  // FIX: Changed id from number to string to match GalleryImage type
+  { id: '2', imageUrl: 'https://www.libreville-accueil-bal.org/medias/images/20200210-93101.jpeg?fx=r_1200_800', title: 'Postes de couture alignés', category: 'atelier' },
+  // FIX: Changed id from number to string to match GalleryImage type
+  { id: '3', imageUrl: 'https://www.libreville-accueil-bal.org/medias/images/20200210-093656.jpeg?fx=r_1200_800', title: 'Vue d\'ensemble de l\'atelier', category: 'atelier' },
+  // FIX: Changed id from number to string to match GalleryImage type
+  { id: '4', imageUrl: 'https://scontent.flbv4-1.fna.fbcdn.net/v/t1.6435-9/102776080_1541929012680926_2589055351735189504_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFBL-UyGsU023e3zLhVjIZdrzbWF3T1DvSvNtYXdPUO9KNU29k5lEzD6PHqbKX9MHyZod-1Ka-1rEBJzxzieWyD&_nc_ohc=chRZLD9pKcgQ7kNvwHC_inC&_nc_oc=AdmhwXjFVy0VW3-2njk2b5d7ECc9W2VlXNd06giBSvWEF7NS7WNQP-CqEM3qwXqyR7M&_nc_zt=23&_nc_ht=scontent.flbv4-1.fna&_nc_gid=wUz2TJp6pN5FqyYwyiAt6g&oh=00_AfUp-tsx4Qd6leU0zwRbX_mGoPK6iN6RdXVcEyVcZ7-EJA&oe=68DD13B2', title: 'Étudiante concentrée', category: 'création' },
+  // FIX: Changed id from number to string to match GalleryImage type
+  { id: '5', imageUrl: 'https://scontent.flbv4-1.fna.fbcdn.net/v/t1.6435-9/102416219_1541929059347588_5541633393919262720_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHVXvmH2JjFfrq83iTMKrKkaGqCsT_yBsNoaoKxP_IGw8HncxAh_ns66QcoF_Xx18lNawYD2dzBeo3rGRH5_BOE&_nc_ohc=HRz6Vj1psngQ7kNvwEhOH_v&_nc_oc=Adlxktfwi5RTuSDVWhrBrysQXzr5kbqHwHjZXvWT7kbpEdzl_7q3NFGiiQGyROyX_lA&_nc_zt=23&_nc_ht=scontent.flbv4-1.fna&_nc_gid=NwCwH5BMUbLaTA4oiyytdw&oh=00_AfW-s9Fbvp3HoRr9O0xScbaWBFw9hxfVMZu74ogtB7OB5Q&oe=68DD215B', title: 'Travail à la machine', category: 'atelier' },
+  // FIX: Changed id from number to string to match GalleryImage type
+  { id: '6', imageUrl: 'https://picsum.photos/600/800?image=1060', title: 'Backstage Moment', category: 'défilé' },
+  // FIX: Changed id from number to string to match GalleryImage type
+  { id: '7', imageUrl: 'https://picsum.photos/600/800?image=659', title: 'Accessoires en Wax', category: 'création' },
 ];
 
 const upcomingEvents: Event[] = [
-    { id: 1, title: 'Défilé de Fin de Cycle - Promotion Axel IBABA', date: '20 Juin 2025', description: 'Les étudiants de la promotion Axel IBABA présentent leurs collections de fin de cycle. Un événement exceptionnel à la paroisse Cœur Immaculé de Nzeng.', imageUrl: 'https://picsum.photos/600/400?image=1060' },
-    { id: 2, title: 'Portes Ouvertes de l\'École', date: '5 Septembre 2024', description: 'Visitez nos ateliers, rencontrez nos professeurs et découvrez les travaux de nos étudiants. Inscriptions sur place possibles.', imageUrl: 'https://www.libreville-accueil-bal.org/medias/images/20200210-093656.jpeg?fx=r_1200_800' },
+    // FIX: Changed id from number to string to match Event type
+    { id: '1', title: 'Défilé de Fin de Cycle - Promotion Axel IBABA', date: '20 Juin 2025', description: 'Les étudiants de la promotion Axel IBABA présentent leurs collections de fin de cycle. Un événement exceptionnel à la paroisse Cœur Immaculé de Nzeng.', imageUrl: 'https://picsum.photos/600/400?image=1060' },
+    // FIX: Changed id from number to string to match Event type
+    { id: '2', title: 'Portes Ouvertes de l\'École', date: '5 Septembre 2024', description: 'Visitez nos ateliers, rencontrez nos professeurs et découvrez les travaux de nos étudiants. Inscriptions sur place possibles.', imageUrl: 'https://www.libreville-accueil-bal.org/medias/images/20200210-093656.jpeg?fx=r_1200_800' },
 ];
 
 const pastEvents: Event[] = [
-    { id: 3, title: 'Défilé de Fin d\'Année 2024', date: '21 Juin 2024', description: 'Présentation des créations des apprenants lors du grand défilé annuel de l\'école, un moment fort célébrant la fin de l\'année académique.', imageUrl: 'https://picsum.photos/600/400?image=823' },
-    { id: 4, title: 'Conférence : La Mode Gabonaise à l\'International', date: '20 Mars 2024', description: 'Avec la participation de designers renommés pour discuter des opportunités et défis du marché mondial.', imageUrl: 'https://picsum.photos/600/400?image=124' },
-    { id: 5, title: 'Solidarité COVID-19', date: 'Avril 2020', description: 'En partenariat avec la Fondation Sylvia Bongo Ondimba (FSBO), nos ateliers ont produit 5 000 masques certifiés pour soutenir l\'effort national.', imageUrl: 'https://scontent.flbv4-1.fna.fbcdn.net/v/t1.6435-9/102776080_1541929012680926_2589055351735189504_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFBL-UyGsU023e3zLhVjIZdrzbWF3T1DvSvNtYXdPUO9KNU29k5lEzD6PHqbKX9MHyZod-1Ka-1rEBJzxzieWyD&_nc_ohc=chRZLD9pKcgQ7kNvwHC_inC&_nc_oc=AdmhwXjFVy0VW3-2njk2b5d7ECc9W2VlXNd06giBSvWEF7NS7WNQP-CqEM3qwXqyR7M&_nc_zt=23&_nc_ht=scontent.flbv4-1.fna&_nc_gid=wUz2TJp6pN5FqyYwyiAt6g&oh=00_AfUp-tsx4Qd6leU0zwRbX_mGoPK6iN6RdXVcEyVcZ7-EJA&oe=68DD13B2' },
+    // FIX: Changed id from number to string to match Event type
+    { id: '3', title: 'Défilé de Fin d\'Année 2024', date: '21 Juin 2024', description: 'Présentation des créations des apprenants lors du grand défilé annuel de l\'école, un moment fort célébrant la fin de l\'année académique.', imageUrl: 'https://picsum.photos/600/400?image=823' },
+    // FIX: Changed id from number to string to match Event type
+    { id: '4', title: 'Conférence : La Mode Gabonaise à l\'International', date: '20 Mars 2024', description: 'Avec la participation de designers renommés pour discuter des opportunités et défis du marché mondial.', imageUrl: 'https://picsum.photos/600/400?image=124' },
+    // FIX: Changed id from number to string to match Event type
+    { id: '5', title: 'Solidarité COVID-19', date: 'Avril 2020', description: 'En partenariat avec la Fondation Sylvia Bongo Ondimba (FSBO), nos ateliers ont produit 5 000 masques certifiés pour soutenir l\'effort national.', imageUrl: 'https://scontent.flbv4-1.fna.fbcdn.net/v/t1.6435-9/102776080_1541929012680926_2589055351735189504_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFBL-UyGsU023e3zLhVjIZdrzbWF3T1DvSvNtYXdPUO9KNU29k5lEzD6PHqbKX9MHyZod-1Ka-1rEBJzxzieWyD&_nc_ohc=chRZLD9pKcgQ7kNvwHC_inC&_nc_oc=AdmhwXjFVy0VW3-2njk2b5d7ECc9W2VlXNd06giBSvWEF7NS7WNQP-CqEM3qwXqyR7M&_nc_zt=23&_nc_ht=scontent.flbv4-1.fna&_nc_gid=wUz2TJp6pN5FqyYwyiAt6g&oh=00_AfUp-tsx4Qd6leU0zwRbX_mGoPK6iN6RdXVcEyVcZ7-EJA&oe=68DD13B2' },
 ];
 
 type Category = 'tous' | 'défilé' | 'atelier' | 'création';

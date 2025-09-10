@@ -1,21 +1,22 @@
 export interface Course {
-  id: number;
+  id: string;
   title: string;
   description: string;
   duration: string;
   admission: string;
   imageUrl: string;
+  chapters?: Chapter[];
 }
 
 export interface GalleryImage {
-  id: number;
+  id: string;
   imageUrl: string;
   title: string;
   category: 'défilé' | 'atelier' | 'création';
 }
 
 export interface Event {
-  id: number;
+  id: string;
   title: string;
   date: string;
   description: string;
@@ -23,7 +24,7 @@ export interface Event {
 }
 
 export interface BlogPost {
-  id: number;
+  id: string;
   title: string;
   date: string;
   excerpt: string;
@@ -32,19 +33,48 @@ export interface BlogPost {
 }
 
 export interface TeamMember {
-  id: number;
+  id: string;
   name: string;
   role: string;
   imageUrl: string;
 }
 
 export interface Alumni {
-  id: number;
+  id: string;
   name: string;
   description: string;
   images: {
-    id: number;
+    id: string;
     imageUrl: string;
     alt: string;
   }[];
+}
+
+export interface Chapter {
+  id: string;
+  title: string;
+  content: string;
+  videoUrl?: string;
+}
+
+export interface SiteSettings {
+  contact: {
+    address: string;
+    phone: string;
+    whatsapp: string;
+    email: string;
+  };
+  social: {
+    facebook: string;
+    instagram: string;
+    tiktok: string;
+  };
+}
+
+// FIX: Added missing TrainingModule interface.
+export interface TrainingModule {
+  id: string;
+  title: string;
+  description: string;
+  chapters?: Chapter[];
 }

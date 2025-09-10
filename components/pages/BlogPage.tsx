@@ -1,11 +1,15 @@
 
+
 import React from 'react';
 import type { BlogPost } from '../../types';
 
 const blogPosts: BlogPost[] = [
-    { id: 1, title: 'Lumière sur le Défilé de Fin d\'Année 2024', date: '25 Juin 2024', author: 'Admin', excerpt: 'Revivez les moments forts du défilé annuel, où nos étudiants ont une fois de plus démontré l\'étendue de leur talent et de leur créativité.', imageUrl: 'https://picsum.photos/600/400?image=1011' },
-    { id: 2, title: 'Notre Mission : La Couture comme Levier d\'Insertion Sociale', date: '10 Mars 2024', author: 'Admin', excerpt: 'Depuis 1996, la vision de notre fondateur, l\'abbé Noël-Aimé Ngwa Nguéma, est d\'une mode qui change des vies. Découvrez l\'impact social de notre école.', imageUrl: 'https://picsum.photos/600/400?image=564' },
-    { id: 3, title: 'Solidarité & Savoir-faire : L\'école produit 5 000 masques pour la FSBO', date: '25 Avril 2020', author: 'Admin', excerpt: 'Pendant la pandémie, notre école a démontré son engagement social en produisant des masques certifiés, alliant compétence technique et aide à la communauté.', imageUrl: 'https://picsum.photos/600/400?image=450' },
+    // FIX: Changed id from number to string to match BlogPost type
+    { id: '1', title: 'Lumière sur le Défilé de Fin d\'Année 2024', date: '25 Juin 2024', author: 'Admin', excerpt: 'Revivez les moments forts du défilé annuel, où nos étudiants ont une fois de plus démontré l\'étendue de leur talent et de leur créativité.', imageUrl: 'https://picsum.photos/600/400?image=1011' },
+    // FIX: Changed id from number to string to match BlogPost type
+    { id: '2', title: 'Notre Mission : La Couture comme Levier d\'Insertion Sociale', date: '10 Mars 2024', author: 'Admin', excerpt: 'Depuis 1996, la vision de notre fondateur, l\'abbé Noël-Aimé Ngwa Nguéma, est d\'une mode qui change des vies. Découvrez l\'impact social de notre école.', imageUrl: 'https://picsum.photos/600/400?image=564' },
+    // FIX: Changed id from number to string to match BlogPost type
+    { id: '3', title: 'Solidarité & Savoir-faire : L\'école produit 5 000 masques pour la FSBO', date: '25 Avril 2020', author: 'Admin', excerpt: 'Pendant la pandémie, notre école a démontré son engagement social en produisant des masques certifiés, alliant compétence technique et aide à la communauté.', imageUrl: 'https://picsum.photos/600/400?image=450' },
 ];
 
 const PostCard: React.FC<{ post: BlogPost }> = ({ post }) => (

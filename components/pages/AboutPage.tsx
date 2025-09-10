@@ -1,12 +1,18 @@
+
 import React from 'react';
 import type { TeamMember } from '../../types';
 
 const teamMembers: TeamMember[] = [
-    { id: 1, name: 'Abbé Noël-Aimé Ngwa Nguéma', role: 'Fondateur Visionnaire', imageUrl: 'https://www.libreville-accueil-bal.org/medias/images/20200210-093656.jpeg?fx=r_1200_800' },
-    { id: 2, name: 'Mme Bernadette MPAGA TCHANDI', role: 'Directrice', imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop' },
-    { id: 3, name: 'M. ELLA MVE Thierry Clay', role: 'Gestionnaire', imageUrl: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=400&auto=format&fit=crop' },
-    { id: 4, name: 'Mme KOUOTOU Henriette', role: 'Enseignante Principale', imageUrl: 'https://images.unsplash.com/photo-1580894908361-967195033215?q=80&w=400&auto=format&fit=crop' },
-    { id: 5, name: 'M. MANDA', role: 'Enseignant', imageUrl: 'https://images.unsplash.com/photo-1573497491208-6b1acb260507?q=80&w=400&auto=format&fit=crop' },
+    // FIX: Changed id from number to string to match TeamMember type
+    { id: '1', name: 'Abbé Noël-Aimé Ngwa Nguéma', role: 'Fondateur Visionnaire', imageUrl: 'https://www.libreville-accueil-bal.org/medias/images/20200210-093656.jpeg?fx=r_1200_800' },
+    // FIX: Changed id from number to string to match TeamMember type
+    { id: '2', name: 'Mme Bernadette MPAGA TCHANDI', role: 'Directrice', imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop' },
+    // FIX: Changed id from number to string to match TeamMember type
+    { id: '3', name: 'M. ELLA MVE Thierry Clay', role: 'Gestionnaire', imageUrl: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=400&auto=format&fit=crop' },
+    // FIX: Changed id from number to string to match TeamMember type
+    { id: '4', name: 'Mme KOUOTOU Henriette', role: 'Enseignante Principale', imageUrl: 'https://images.unsplash.com/photo-1580894908361-967195033215?q=80&w=400&auto=format&fit=crop' },
+    // FIX: Changed id from number to string to match TeamMember type
+    { id: '5', name: 'M. MANDA', role: 'Enseignant', imageUrl: 'https://images.unsplash.com/photo-1573497491208-6b1acb260507?q=80&w=400&auto=format&fit=crop' },
 ];
 
 const AboutPage: React.FC = () => {
